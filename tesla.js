@@ -1,4 +1,4 @@
-// https://www.tesla.com/da_DK/inventory/new/my?TRIM=LRAWD&PAINT=BLACK,BLUE,SILVER&INTERIOR=PREMIUM_BLACK&WHEELS=NINETEEN&ADL_OPTS=TOWING&arrangeby=relevance&zip=5000&range=0
+// https://www.tesla.com/da_DK/inventory/new/my?TRIM=LRAWD&PAINT=BLACK,BLUE,SILVER&INTERIOR=PREMIUM_BLACK&WHEELS=NINETEEN&ADL_OPTS=TOWING&arrangeby=relevance&zip=8930&range=0
 
 require("dotenv").config();
 
