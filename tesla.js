@@ -45,6 +45,8 @@ const colorToEmoji = (paint) => {
       return "🔵 ";
     case "silver":
       return "⚪️ ";
+    case "red":
+      return "🔴 ";
     default:
       return "";
   }
