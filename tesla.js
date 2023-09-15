@@ -13,7 +13,7 @@ const query = {
     condition: "new",
     options: {
       TRIM: ["LRAWD"],
-      PAINT: ["BLACK", "BLUE", "SILVER"],
+      PAINT: ["BLACK", "BLUE", "SILVER", "RED"],
       INTERIOR: ["PREMIUM_BLACK"],
       WHEELS: ["NINETEEN"],
       ADL_OPTS: ["TOWING"],
