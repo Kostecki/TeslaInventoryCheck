@@ -25,8 +25,8 @@ const query = {
     market: "DK",
     language: "da",
     super_region: "north america",
-    lng: process.env.LNG,
-    lat: process.env.LAT,
+    lng: parseFloat(process.env.LNG),
+    lat: parseFloat(process.env.LAT),
     zip: "8930",
     range: 0,
     region: "DK",
@@ -122,21 +122,19 @@ const sendNotification = (cars) => {
 
 const getInventory = async () => {
   const payload = encodeURIComponent(JSON.stringify(query));
+  const url = `https://www.tesla.com/inventory/api/v1/inventory-results?query=${payload}`;
   const headers = {
     "user-agent":
       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36",
   };
 
   try {
-    const response = await fetch(
-      `https://www.tesla.com/inventory/api/v1/inventory-results?query=${payload}`,
-      { headers }
-    );
+    const response = await fetch(url, { headers });
     const inventory = await response.json();
 
     const newCars = [];
 
-    inventory.results.forEach(async (car) => {
+    inventory.results.exact.forEach(async (car) => {
       const { VIN } = car;
       const alreadyKnown = localStorage.getItem(VIN);
 
