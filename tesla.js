@@ -132,9 +132,10 @@ const getInventory = async () => {
     const response = await fetch(url, { headers });
     const inventory = await response.json();
 
+    const results = inventory.results.exact ?? inventory.results;
     const newCars = [];
 
-    inventory.results.exact.forEach(async (car) => {
+    results.forEach(async (car) => {
       const { VIN } = car;
       const alreadyKnown = localStorage.getItem(VIN);
 
