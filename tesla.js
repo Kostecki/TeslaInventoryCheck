@@ -132,6 +132,10 @@ const getInventory = async () => {
     const results = inventory.results.exact ?? inventory.results;
     const newCars = [];
 
+    if (results.length === 0) {
+      localStorage.clear();
+    }
+
     results.forEach(async (car) => {
       const { VIN } = car;
       const alreadyKnown = localStorage.getItem(VIN);
