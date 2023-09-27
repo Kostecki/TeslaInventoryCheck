@@ -1,5 +1,5 @@
 /*
-https://www.tesla.com/da_DK/inventory/new/my?TRIM=LRAWD&PAINT=BLACK,BLUE,SILVER&INTERIOR=PREMIUM_BLACK&WHEELS=NINETEEN&ADL_OPTS=TOWING&arrangeby=relevance&zip=8930&range=0
+https://www.tesla.com/da_DK/inventory/new/my?TRIM=LRAWD&PAINT=BLACK,BLUE&INTERIOR=PREMIUM_BLACK&WHEELS=NINETEEN&ADL_OPTS=TOWING&arrangeby=relevance&zip=8930&range=0
 */
 
 require("dotenv").config();
@@ -49,6 +49,10 @@ const colorToEmoji = (paint) => {
     default:
       return "";
   }
+};
+
+const isGerman = (VIN) => {
+  return VIN.startsWith("X7P");
 };
 
 const buildMessage = (year, trimName, color, price, totalPrice, paint) => {
@@ -140,7 +144,7 @@ const getInventory = async () => {
       const { VIN } = car;
       const alreadyKnown = localStorage.getItem(VIN);
 
-      if (!alreadyKnown) {
+      if (!alreadyKnown && isGerman(VIN)) {
         localStorage.setItem(VIN, true);
         newCars.push(car);
       }
