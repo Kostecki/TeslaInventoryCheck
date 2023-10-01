@@ -9,14 +9,15 @@ if (typeof localStorage === "undefined" || localStorage === null) {
   localStorage = new LocalStorage("./storage");
 }
 
+const FactoryCodeDE = "XP7";
 const query = {
   query: {
     model: "my",
     condition: "new",
     options: {
       TRIM: ["LRAWD"],
-      PAINT: ["BLACK", "BLUE", "SILVER", "RED"],
-      INTERIOR: ["PREMIUM_BLACK"],
+      PAINT: ["BLACK", "BLUE"],
+      INTERIOR: ["PREMIUM_BLACK", "BLACK"],
       WHEELS: ["NINETEEN"],
       ADL_OPTS: ["TOWING"],
     },
@@ -52,7 +53,7 @@ const colorToEmoji = (paint) => {
 };
 
 const isGerman = (VIN) => {
-  return VIN.startsWith("X7P");
+  return VIN.startsWith(FactoryCodeDE);
 };
 
 const buildMessage = (year, trimName, color, price, totalPrice, paint) => {
