@@ -46,7 +46,6 @@ const colorToEmoji = (paint) => {
       return "⚫️ ";
     case "blue":
       return "🔵 ";
-    case "silver":
     default:
       return "";
   }
@@ -103,7 +102,7 @@ const sendNotification = (cars) => {
         },
         body: JSON.stringify({
           topic: "Tesla",
-          title: "Ny bil på lager! 🚙💨",
+          title: "Ny bil på lager! 🚙💨 🇩🇪",
           message: buildMessage(
             Year,
             TrimName,
